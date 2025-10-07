@@ -17,7 +17,7 @@ export default function ContentPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editingData, setEditingData] = useState({ title: "", body: "" });
 
-  // ✅ Fetch content on mount
+  // Fetch content on mount
   useEffect(() => {
     async function fetchContents() {
       try {
@@ -33,7 +33,7 @@ export default function ContentPage() {
     fetchContents();
   }, []);
 
-  // ✅ Create new content
+  // Create new content
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
@@ -61,7 +61,7 @@ export default function ContentPage() {
     }
   }
 
-  // ✅ Delete content
+  // Delete content
   async function handleDelete(id: string) {
     if (!confirm("Delete this content?")) return;
     try {
@@ -77,7 +77,7 @@ export default function ContentPage() {
     }
   }
 
-  // ✅ Edit handlers
+  // Edit handlers
   function handleEditStart(content: Content) {
     setEditingId(content.id);
     setEditingData({ title: content.title, body: content.body });
@@ -112,7 +112,7 @@ export default function ContentPage() {
       <aside className="w-1/3 bg-white border-r shadow-sm p-6 flex flex-col justify-between">
         <div>
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-            📝 Create Content
+            Create Content
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
