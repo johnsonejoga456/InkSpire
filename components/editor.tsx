@@ -89,6 +89,7 @@ export default function Editor({ value, onChange, isEditable = true }: EditorPro
         onUpdate: ({ editor }) => {
             onChange(editor.getHTML());
         },
+        immediatelyRender: false,
         editorProps: {
             attributes: {
                 class: 'prose prose-sm sm:prose-base dark:prose-invert focus:outline-none min-h-[300px] p-4 max-w-none',
